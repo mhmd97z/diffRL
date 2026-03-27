@@ -6,7 +6,7 @@ import time
 
 
 def run_query(model_path, vnnlib_path):
-    options = Marabou.createOptions(verbosity=0, timeoutInSeconds=timeout)
+    options = Marabou.createOptions(verbosity=0, timeoutInSeconds=timeout, snc=True, numWorkers=28)
     network = Marabou.read_onnx(model_path)
     exitCode, _, _ = network.solve(options=options, propertyFilename=vnnlib_path)
 
@@ -18,9 +18,8 @@ if __name__ == "__main__":
     action_count = 15
     model_input_size = 19
     model_output_size = action_count
-    indices = [50, 51, 52, 53, 54, 55]
     indices = None
-    timeout = 3600
+    timeout = 600
     model_path = f"../applications/cmars/models/conv2d_based_onnx/model_l{layer_count}_h{hidden_size}_a{action_count}.onnx"
     property_csv_file_path = f"../applications/cmars/output{action_count}_robustness_lower00upper10.csv"
     

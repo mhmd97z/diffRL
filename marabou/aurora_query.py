@@ -14,7 +14,7 @@ def run_query(model_path, vnnlib_path):
 
 if __name__ == "__main__":
     indices = None
-    timeout = 1000
+    timeout = 600
     model_path = f"../applications/aurora/models/conv2d_based_onnx/model_conv2d.onnx"
     property_csv_file_path = f"../applications/aurora/capacity_utilization_eps001.csv"
     # capacity_utilization_eps001.csv
